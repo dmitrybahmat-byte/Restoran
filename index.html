@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#11100e">
+<title>AURUM — ресторан современной кухни</title>
+<meta name="description" content="AURUM — ресторан современной европейской кухни. Авторское меню, вечерняя атмосфера и безупречный сервис.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0d0c; --surface:#151513; --surface2:#1b1a17; --text:#f4f0e7;
+  --muted:#aaa49a; --gold:#c9a86a; --gold2:#e3c58a; --line:rgba(255,255,255,.1);
+  --serif:"Playfair Display",Georgia,serif; --sans:"DM Sans",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");z-index:20}
+a{color:inherit;text-decoration:none}.container{width:min(1180px,calc(100% - 48px));margin:auto}
+header{position:fixed;top:0;left:0;right:0;height:78px;z-index:10;display:flex;align-items:center;transition:.35s;border-bottom:1px solid transparent}
+header.scrolled{background:rgba(13,13,12,.88);backdrop-filter:blur(18px);border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;width:100%}
+.logo{font-family:var(--serif);font-size:25px;letter-spacing:.2em}
+.logo span{color:var(--gold)}
+nav{display:flex;gap:32px;font-size:13px;color:#d6d0c4}
+nav a{position:relative}nav a:after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:1px;background:var(--gold);transition:.3s}nav a:hover:after{width:100%}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:1px solid rgba(201,168,106,.65);padding:13px 20px;font-size:12px;text-transform:uppercase;letter-spacing:.13em;transition:.3s;background:transparent;color:var(--text);cursor:pointer}
+.btn:hover{background:var(--gold);color:#111;border-color:var(--gold);transform:translateY(-2px)}
+.hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,7,.9) 0%,rgba(8,8,7,.55) 48%,rgba(8,8,7,.32) 100%),url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2200&q=85") center/cover}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:220px;background:linear-gradient(transparent,var(--bg))}
+.hero-content{position:relative;z-index:2;padding-top:80px;max-width:750px}
+.eyebrow{color:var(--gold2);font-size:11px;letter-spacing:.28em;text-transform:uppercase;margin-bottom:24px}
+h1{font-family:var(--serif);font-size:clamp(58px,9vw,118px);line-height:.88;font-weight:500;letter-spacing:-.045em}
+h1 em{font-style:italic;color:#d7c29a}
+.hero p{max-width:550px;margin:30px 0 34px;color:#d1cbc0;line-height:1.8;font-size:16px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{position:absolute;z-index:2;bottom:38px;right:0;display:flex;gap:28px;color:#c9c2b5;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+section{padding:120px 0}.section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:52px}
+.kicker{color:var(--gold);font-size:11px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:14px}
+h2{font-family:var(--serif);font-size:clamp(40px,5vw,68px);font-weight:500;line-height:1}
+.section-head p{max-width:390px;color:var(--muted);line-height:1.7;font-size:14px}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+.image-card{min-height:560px;overflow:hidden;position:relative;background:#222}
+.image-card img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.image-card:hover img{transform:scale(1.04)}
+.about-copy{padding:50px;background:var(--surface);display:flex;flex-direction:column;justify-content:center}
+.about-copy p{color:var(--muted);line-height:1.9;margin:25px 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);padding-top:25px;gap:20px}
+.stat strong{display:block;font-family:var(--serif);font-size:30px;color:var(--gold2)}.stat span{font-size:11px;color:#77736c;text-transform:uppercase;letter-spacing:.1em}
+.menu-section{background:#11110f}.menu-tabs{display:flex;gap:8px;margin-bottom:32px;flex-wrap:wrap}.tab{border:1px solid var(--line);background:transparent;color:#aaa;padding:10px 15px;font:inherit;font-size:12px;cursor:pointer;transition:.25s}.tab.active,.tab:hover{background:var(--gold);border-color:var(--gold);color:#111}
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.dish{background:var(--surface);padding:28px;display:grid;grid-template-columns:1fr auto;gap:18px;min-height:150px;transition:.3s}.dish:hover{background:#1b1a17}.dish h3{font-family:var(--serif);font-size:24px;font-weight:500}.dish p{color:#858078;font-size:13px;line-height:1.6;margin-top:8px;max-width:470px}.price{color:var(--gold2);font-size:15px;white-space:nowrap}.dish.hidden{display:none}
+.feature{padding-top:50px}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature-card{position:relative;min-height:430px;overflow:hidden}.feature-card img{width:100%;height:100%;object-fit:cover;transition:1s}.feature-card:hover img{transform:scale(1.06)}.feature-card:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(0,0,0,.82))}.feature-info{position:absolute;z-index:2;left:28px;right:28px;bottom:25px}.feature-info h3{font-family:var(--serif);font-size:29px;font-weight:500}.feature-info p{color:#bbb3a6;font-size:13px;margin-top:8px}
+.booking{position:relative;overflow:hidden;background:#171612}.booking:before{content:"";position:absolute;width:500px;height:500px;border:1px solid rgba(201,168,106,.15);border-radius:50%;right:-160px;top:-190px}.booking-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:center}.booking-copy p{color:var(--muted);line-height:1.8;margin:22px 0}.form{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{background:#11110f;border:1px solid var(--line);padding:16px;color:#eee;outline:none;font:inherit;width:100%}.field:focus{border-color:rgba(201,168,106,.7)}.full{grid-column:1/-1}.form small{grid-column:1/-1;color:#6f6b64;font-size:11px;line-height:1.5}.form .btn{grid-column:1/-1}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}.contact-card{background:var(--surface);padding:30px}.contact-card .kicker{margin-bottom:20px}.contact-card p{color:#b2aca2;line-height:1.7;font-size:14px}.map{height:420px;margin-top:18px;position:relative;overflow:hidden;background:#20201c}.map iframe{width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.1) brightness(.65)}
+footer{border-top:1px solid var(--line);padding:32px 0;color:#77736b;font-size:12px}.footer-in{display:flex;justify-content:space-between;gap:20px}.gold{color:var(--gold)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:none}
+.menu-toggle{display:none;border:0;background:none;color:#fff;font-size:25px}
+.toast{position:fixed;right:22px;bottom:22px;background:#eee8dc;color:#111;padding:16px 20px;z-index:50;transform:translateY(120px);transition:.4s;font-size:13px}.toast.show{transform:none}
+@media(max-width:800px){
+ .container{width:min(100% - 30px,1180px)} nav{display:none}.menu-toggle{display:block}.nav .btn{display:none}
+ .hero{min-height:800px}.hero-meta{position:relative;bottom:auto;right:auto;margin-top:50px;flex-wrap:wrap}
+ section{padding:85px 0}.section-head{display:block}.section-head p{margin-top:20px}
+ .about-grid,.booking-grid{grid-template-columns:1fr}.image-card{min-height:400px}.menu-grid,.feature-grid,.contact-grid{grid-template-columns:1fr}
+ .booking-grid{gap:45px}.form{grid-template-columns:1fr}.full,.form .btn,.form small{grid-column:auto}
+}
+</style>
+</head>
+<body>
+<header id="header"><div class="container nav">
+  <a class="logo" href="#top">AURUM<span>.</span></a>
+  <nav><a href="#about">О нас</a><a href="#menu">Меню</a><a href="#atmosphere">Атмосфера</a><a href="#contacts">Контакты</a></nav>
+  <a class="btn" href="#booking">Забронировать</a>
+  <button class="menu-toggle" aria-label="Меню">☰</button>
+</div></header>
+
+<main id="top">
+<section class="hero">
+ <div class="hero-bg"></div>
+ <div class="container">
+  <div class="hero-content reveal">
+   <div class="eyebrow">Ресторан современной кухни · с 2018</div>
+   <h1>Вкус,<br><em>который</em><br>запоминают.</h1>
+   <p>Авторская кухня, редкие ингредиенты и атмосфера, в которой обычный ужин превращается в событие.</p>
+   <div class="hero-actions"><a class="btn" href="#menu">Смотреть меню</a><a class="btn" href="#booking">Забронировать столик</a></div>
+  </div>
+  <div class="hero-meta"><span>Новосибирск · Красный проспект, 18</span><span>12:00 — 00:00</span></div>
+ </div>
+</section>
+
+<section id="about">
+ <div class="container">
+  <div class="section-head reveal"><div><div class="kicker">О ресторане</div><h2>Там, где кухня<br>становится искусством.</h2></div><p>AURUM — камерный ресторан на 48 гостей. Мы соединяем европейскую гастрономию с локальными продуктами Сибири.</p></div>
+  <div class="about-grid reveal">
+   <div class="image-card"><img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=85" alt="Интерьер ресторана"></div>
+   <div class="about-copy"><div class="kicker">Философия AURUM</div><h2>Меньше лишнего.<br>Больше впечатлений.</h2><p>Мы не гонимся за сложностью ради сложности. Каждый продукт должен иметь смысл, каждый штрих — работать на впечатление. В основе нашего меню — сезонность, открытый огонь и уважение к ингредиенту.</p><div class="stats"><div class="stat"><strong>48</strong><span>мест в зале</span></div><div class="stat"><strong>7 лет</strong><span>истории</span></div><div class="stat"><strong>4.9</strong><span>средняя оценка</span></div></div></div>
+  </div>
+ </div>
+</section>
+
+<section id="menu" class="menu-section">
+ <div class="container">
+  <div class="section-head reveal"><div><div class="kicker">Меню</div><h2>Избранное</h2></div><p>Меню меняется вместе с сезоном. Здесь — блюда, за которыми гости возвращаются.</p></div>
+  <div class="menu-tabs reveal">
+   <button class="tab active" data-cat="all">Все</button><button class="tab" data-cat="starter">Закуски</button><button class="tab" data-cat="main">Основные</button><button class="tab" data-cat="dessert">Десерты</button><button class="tab" data-cat="drink">Напитки</button>
+  </div>
+  <div class="menu-grid reveal">
+   <article class="dish" data-cat="starter"><div><h3>Тартар из лосося</h3><p>Авокадо, понзу, хрустящий рис, масло зелёного лука</p></div><div class="price">890 ₽</div></article>
+   <article class="dish" data-cat="starter"><div><h3>Гребешок & цитрус</h3><p>Якутский гребешок, юдзу, огурец, икра тобико</p></div><div class="price">1 190 ₽</div></article>
+   <article class="dish" data-cat="main"><div><h3>Утиная грудка</h3><p>Пюре из пастернака, вишнёвый соус, печёный шалфей</p></div><div class="price">1 690 ₽</div></article>
+   <article class="dish" data-cat="main"><div><h3>Стейк Рибай</h3><p>Мраморная говядина, картофель конфит, перечный соус</p></div><div class="price">2 490 ₽</div></article>
+   <article class="dish" data-cat="main"><div><h3>Палтус на углях</h3><p>Цветная капуста, крем из копчёного масла, лимон</p></div><div class="price">1 790 ₽</div></article>
+   <article class="dish" data-cat="starter"><div><h3>Буррата</h3><p>Томаты, базилик, земля из оливок, бальзамик</p></div><div class="price">790 ₽</div></article>
+   <article class="dish" data-cat="dessert"><div><h3>Шоколадный купол</h3><p>Тёмный шоколад, солёная карамель, фундук</p></div><div class="price">650 ₽</div></article>
+   <article class="dish" data-cat="dessert"><div><h3>Мильфей «Золото»</h3><p>Сливочный крем, груша, ваниль, карамельный лист</p></div><div class="price">590 ₽</div></article>
+   <article class="dish" data-cat="drink"><div><h3>Авторский «Aurum»</h3><p>Безалкогольный коктейль, юдзу, жасмин, виноград</p></div><div class="price">490 ₽</div></article>
+   <article class="dish" data-cat="drink"><div><h3>Эспрессо-тоник</h3><p>Эспрессо, тоник, цитрусовый кордиал</p></div><div class="price">390 ₽</div></article>
+  </div>
+ </div>
+</section>
+
+<section id="atmosphere">
+ <div class="container">
+  <div class="section-head reveal"><div><div class="kicker">Атмосфера</div><h2>Вечер начинается<br>с первого взгляда.</h2></div><p>Тёплый свет, натуральный камень, дерево и музыка, которая не мешает разговаривать.</p></div>
+  <div class="feature-grid reveal">
+   <div class="feature-card"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85" alt="Зал"><div class="feature-info"><h3>Главный зал</h3><p>48 мест · спокойная атмосфера</p></div></div>
+   <div class="feature-card"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=85" alt="Блюдо"><div class="feature-info"><h3>Авторская кухня</h3><p>Сезонное меню · открытый огонь</p></div></div>
+   <div class="feature-card"><img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=85" alt="Ужин"><div class="feature-info"><h3>Особый повод</h3><p>Ужины · свидания · праздники</p></div></div>
+  </div>
+ </div>
+</section>
+
+<section id="booking" class="booking">
+ <div class="container booking-grid">
+  <div class="booking-copy reveal"><div class="kicker">Бронирование</div><h2>Ваш стол<br>уже ждёт.</h2><p>Оставьте заявку — администратор свяжется с вами для подтверждения бронирования.</p><div class="gold">+7 (383) 245-18-18</div></div>
+  <form class="form reveal" id="bookingForm">
+   <input class="field" required placeholder="Ваше имя">
+   <input class="field" required type="tel" placeholder="Телефон">
+   <input class="field" required type="date">
+   <select class="field" required><option value="">Время</option><option>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option><option>22:00</option></select>
+   <select class="field full" required><option value="">Количество гостей</option><option>2 гостя</option><option>3 гостя</option><option>4 гостя</option><option>5 гостей</option><option>6+ гостей</option></select>
+   <button class="btn" type="submit">Отправить заявку</button>
+   <small>Нажимая кнопку, вы соглашаетесь на обработку данных. Это демонстрационная форма — заявка никуда не отправляется.</small>
+  </form>
+ </div>
+</section>
+
+<section id="contacts">
+ <div class="container">
+  <div class="section-head reveal"><div><div class="kicker">Контакты</div><h2>Ждём вас.</h2></div><p>В самом центре Новосибирска — место для долгих разговоров, красивых вечеров и хорошей еды.</p></div>
+  <div class="contact-grid reveal">
+   <div class="contact-card"><div class="kicker">Адрес</div><p>Красный проспект, 18<br>Новосибирск, 630007</p></div>
+   <div class="contact-card"><div class="kicker">Часы работы</div><p>Пн–Чт · 12:00–23:00<br>Пт–Сб · 12:00–00:00<br>Вс · 13:00–22:00</p></div>
+   <div class="contact-card"><div class="kicker">Связь</div><p>+7 (383) 245-18-18<br>hello@aurum-restaurant.ru</p></div>
+  </div>
+  <div class="map reveal"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=82.910%2C55.026%2C82.930%2C55.040&layer=mapnik&marker=55.032%2C82.920" loading="lazy" title="Карта"></iframe></div>
+ </div>
+</section>
+</main>
+
+<footer><div class="container footer-in"><span>© 2026 AURUM Restaurant</span><span>Современная кухня · <span class="gold">Новосибирск</span></span></div></footer>
+<div class="toast" id="toast">Заявка принята. Мы свяжемся с вами для подтверждения.</div>
+<script>
+const header=document.getElementById('header');
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>30));
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{
+ document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));tab.classList.add('active');
+ const cat=tab.dataset.cat;
+ document.querySelectorAll('.dish').forEach(d=>d.classList.toggle('hidden',cat!=='all'&&d.dataset.cat!==cat));
+}));
+document.getElementById('bookingForm').addEventListener('submit',e=>{
+ e.preventDefault(); const toast=document.getElementById('toast');toast.classList.add('show');e.target.reset();setTimeout(()=>toast.classList.remove('show'),4500);
+});
+document.querySelector('.menu-toggle').addEventListener('click',()=>{const nav=document.querySelector('nav');nav.style.display=nav.style.display==='flex'?'none':'flex';nav.style.position='absolute';nav.style.top='78px';nav.style.left='0';nav.style.right='0';nav.style.padding='25px';nav.style.background='rgba(13,13,12,.97)';nav.style.flexDirection='column';});
+</script>
+</body>
+</html>
